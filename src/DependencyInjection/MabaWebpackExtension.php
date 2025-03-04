@@ -2,6 +2,7 @@
 
 namespace Maba\Bundle\WebpackBundle\DependencyInjection;
 
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Maba\Bundle\WebpackBundle\Compiler\WebpackProcessBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -15,7 +16,7 @@ class MabaWebpackExtension extends Extension
         $configuration = $this->getConfiguration($configs, $container);
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.xml');
 
         $container->setParameter('maba_webpack.enabled_bundles', $config['enabled_bundles']);

@@ -2,6 +2,8 @@
 
 namespace Maba\Bundle\WebpackBundle\Exception;
 
-class ResourceParsingException extends \RuntimeException
+use RuntimeException;
+
+class ResourceParsingException extends RuntimeException
 {
 }

@@ -22,7 +22,7 @@ class Configuration implements ConfigurationInterface
         $this->environment = $environment;
     }
 
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('maba_webpack');
         $rootNode = $treeBuilder->getRootNode();
