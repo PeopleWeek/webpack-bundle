@@ -126,14 +126,13 @@ class WebpackTokenParser extends AbstractTokenParser
             new AssignNameExpression('asset_url', $lineNo),
             $functionExpression,
             $lineNo,
-            $this->getTag()
         );
 
         // if (asset_url) { ... }
         $ifBlock = new IfNode(new Node([
             new AssignNameExpression('asset_url', $lineNo),
             $body,
-        ]), null, $lineNo, $this->getTag());
+        ]), null, $lineNo);
 
         return new Node([$assignExpression, $ifBlock]);
     }

@@ -2,6 +2,7 @@
 
 namespace Maba\Bundle\WebpackBundle\DependencyInjection;
 
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\NodeBuilder;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -26,6 +27,8 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder('maba_webpack');
         $rootNode = $treeBuilder->getRootNode();
+
+        assert($rootNode instanceof ArrayNodeDefinition);
 
         $rootChildren = $rootNode->children();
 

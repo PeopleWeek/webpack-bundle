@@ -75,12 +75,13 @@ class TwigAssetProvider
     private function loadNode(Node $node, $resource)
     {
         if ($this->isFunctionNode($node)) {
-            /* @var FunctionExpression $node */
+            assert($node instanceof FunctionExpression);
             return $this->parseFunctionNode($node, sprintf('File %s, line %s', $resource, $node->getTemplateLine()));
         }
 
         $assets = [];
         foreach ($node as $child) {
+            // @phpstan-ignore-next-line
             if ($child instanceof Node) {
                 $assets = array_merge($assets, $this->loadNode($child, $resource));
             }
@@ -101,9 +102,6 @@ class TwigAssetProvider
     private function parseFunctionNode(FunctionExpression $functionNode, $context)
     {
         $arguments = iterator_to_array($functionNode->getNode('arguments'));
-        if (!is_array($arguments)) {
-            throw new ResourceParsingException('arguments is not an array');
-        }
 
         if (count($arguments) < 1 || count($arguments) > 3) {
             throw new ResourceParsingException(sprintf('Expected one to three arguments passed to function %s. %s', WebpackExtension::FUNCTION_NAME, $context));

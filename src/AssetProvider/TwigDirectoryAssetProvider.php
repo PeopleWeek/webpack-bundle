@@ -48,7 +48,7 @@ class TwigDirectoryAssetProvider implements AssetProviderInterface
 
     /**
      * @param string $resource
-     * @return Finder|SplFileInfo[]
+     * @return Finder|array
      */
     private function createFinder($resource)
     {
