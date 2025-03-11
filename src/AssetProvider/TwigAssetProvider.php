@@ -81,7 +81,6 @@ class TwigAssetProvider
 
         $assets = [];
         foreach ($node as $child) {
-            // @phpstan-ignore-next-line
             if ($child instanceof Node) {
                 $assets = array_merge($assets, $this->loadNode($child, $resource));
             }
