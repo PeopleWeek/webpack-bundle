@@ -2,7 +2,7 @@
 
 namespace Maba\Bundle\WebpackBundle;
 
-use Maba\Component\DependencyInjection\AddTaggedCompilerPass;
+use Maba\Bundle\WebpackBundle\DependencyInjection\AddTaggedCompilerPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
