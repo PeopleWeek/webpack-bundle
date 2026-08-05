@@ -41,7 +41,7 @@ class WebpackConfigManager
      * @param WebpackConfig $previousConfig
      * @return WebpackConfig
      */
-    public function dump(WebpackConfig $previousConfig = null)
+    public function dump(?WebpackConfig $previousConfig = null)
     {
         $aliases = $this->aliasManager->getAliases();
         $assetResult = $this->assetCollector->getAssets(

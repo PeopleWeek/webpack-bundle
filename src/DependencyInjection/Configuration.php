@@ -28,8 +28,6 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder('maba_webpack');
         $rootNode = $treeBuilder->getRootNode();
 
-        assert($rootNode instanceof ArrayNodeDefinition);
-
         $rootChildren = $rootNode->children();
 
         $this->configureEnabledBundles($rootChildren);

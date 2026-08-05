@@ -34,7 +34,7 @@ class WebpackCompiler
         $this->logger = $logger;
     }
 
-    public function compile(Closure $callback = null, WebpackConfig $previousConfig = null)
+    public function compile(?Closure $callback = null, ?WebpackConfig $previousConfig = null)
     {
         // remove manifest file if exists - keep sure we create new one
         $this->removeManifestFile();
@@ -52,7 +52,7 @@ class WebpackCompiler
         $this->saveManifest();
     }
 
-    public function compileAndWatch(Closure $callback = null)
+    public function compileAndWatch(?Closure $callback = null)
     {
         // remove manifest file if exists - keep sure we create new one
         $this->removeManifestFile();
@@ -147,7 +147,7 @@ class WebpackCompiler
         }
     }
 
-    private function outputNoEntryPointsNotice(Closure $callback = null)
+    private function outputNoEntryPointsNotice(?Closure $callback = null)
     {
         if ($callback !== null) {
             $callback(Process::OUT, 'No entry points found - not running webpack' . \PHP_EOL);

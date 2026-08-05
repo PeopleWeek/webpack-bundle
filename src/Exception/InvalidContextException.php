@@ -17,7 +17,7 @@ class InvalidContextException extends RuntimeException
      * @param mixed $context
      * @param int $code
      */
-    public function __construct($message, $context, $code = 0, Exception $previous = null)
+    public function __construct($message, $context, $code = 0, ?Exception $previous = null)
     {
         parent::__construct($message, $code, $previous);
         $this->context = $context;

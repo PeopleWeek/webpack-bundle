@@ -31,7 +31,7 @@ EOT
             );
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->compiler->compileAndWatch(function ($type, $buffer) use ($output) {
             if (Process::ERR === $type) {

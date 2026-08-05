@@ -81,9 +81,7 @@ class TwigAssetProvider
 
         $assets = [];
         foreach ($node as $child) {
-            if ($child instanceof Node) {
-                $assets = array_merge($assets, $this->loadNode($child, $resource));
-            }
+            $assets = array_merge($assets, $this->loadNode($child, $resource));
         }
 
         return $assets;

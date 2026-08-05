@@ -17,7 +17,7 @@ class InvalidResourceException extends RuntimeException
      * @param mixed $resource
      * @param int $code
      */
-    public function __construct($message, $resource, $code = 0, Exception $previous = null)
+    public function __construct($message, $resource, $code = 0, ?Exception $previous = null)
     {
         parent::__construct($message . '. Got ' . gettype($resource), $code, $previous);
         $this->resource = $resource;

@@ -38,7 +38,7 @@ EOT
             );
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $logger = $this->logger;
         $this->compiler->compile(function ($type, $buffer) use ($output, $logger) {
